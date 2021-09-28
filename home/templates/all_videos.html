@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row kalam">
+        <div class="col-12" style="text-align:center;">
+            <h1 class="m-4">{{elsaf.name}}</h1>
+        </div>
+    </div>
+    <div class="col d-flex justify-content-center">
+        <div class="row">
+            {% for i in videos %}
+                {% if i.elsaf == elsaf %}
+                    <div class="card m-2" width="1rm" style="max-width:353px; max-height:700px;">
+                        <img src="{{i.image.url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title right">{{i.name}}</h5>
+                            <p class="card-text right">{{i.description}}</p>
+                            <a href="{% url 'home:video_detail' i.id %}" class="btn btn-primary">عرض المنشور</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

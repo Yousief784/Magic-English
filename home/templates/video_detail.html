@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load embed_video_tags %}
+
+{% block body %}
+ < class="container">
+     {% if video.url is None %}
+     <div class="col d-flex justify-content-center">
+         <div class="row m-5">
+             <div style="margin-top:50px; margin-bottom:-50px">
+                 {% video video.video '1000x500' %}
+             </div>
+         </div>
+     </div>
+     {% else %}
+     <div class="row kalam">
+         <div class="col-12 " style="text-align:center;">
+             <h1 class="m-2"><a href="{{video.url}}" style="" target="_blank">تحميل</a></h1>
+         </div>
+     </div>
+     {% endif %}
+ </div>
+
+{% endblock body %}
+{% video video.video small %}
